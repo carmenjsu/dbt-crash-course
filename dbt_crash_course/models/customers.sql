@@ -31,9 +31,9 @@ final as (
         customer_order.first_order,
         customer_order.most_recent_order,
         customer_order.num_of_orders
-    from customers a
-    left join customer_order b
-    on a.id=b.user_id
+    from customers
+    left join customer_order
+    on customers.id=customer_order.user_id
 )
 
 select * from final
