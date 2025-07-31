@@ -21,7 +21,7 @@ customer_order as (
            count(id) as number_of_orders
     from orders
     group by user_id
-)
+),
 
 final_customers as (
     select
