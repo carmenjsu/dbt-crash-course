@@ -23,7 +23,7 @@ customer_order as (
     group by user_id
 )
 
-final as (
+final_customers as (
     select
         customer.id,
         customer.first_name,
@@ -36,4 +36,4 @@ final as (
     on customers.id=customer_order.user_id
 )
 
-select * from final
+select * from final_customers
