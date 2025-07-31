@@ -2,7 +2,7 @@ with customers as (
     select id,
            first_name,
            last_name
-    from `dbt-tutorial`.jaffle_shop.customers
+    from dbt-tutorial.jaffle_shop.customers
 ),
 
 orders as (
@@ -10,7 +10,7 @@ orders as (
            user_id,
            order_date,
            status
-    from `dbt-tutorial`.jaffle_shop.orders
+    from dbt-tutorial.jaffle_shop.orders
 ),
 
 customer_order as (
@@ -25,12 +25,12 @@ customer_order as (
 
 final_customers as (
     select
-        customer.id,
-        customer.first_name,
-        customer.last_name,
+        customers.id,
+        customers.first_name,
+        customers.last_name,
         customer_order.first_order,
         customer_order.most_recent_order,
-        customer_order.num_of_orders
+        customer_order.number_of_orders
     from customers
     left join customer_order
     on customers.id=customer_order.user_id
